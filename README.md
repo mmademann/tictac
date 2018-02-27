@@ -1,9 +1,6 @@
 ## Tic Tac Toe
 
-- [Instructions](#instructions)
-
 ## Instructions
 
-How to play...
-
-* `Tic Tac Toe` is easy to play, just get 3 of your Xs or Os in a row, column, or diagonal line
+* `Tic Tac Toe` is easy to play, and just barely fun! 
+* Get 3 of your Xs or Os in a row, column, or diagonal line to win

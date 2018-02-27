@@ -44,6 +44,16 @@ ol, ul {
   outline: none;
 }
 
+.effect-pop {
+  transition: all .6s ease;
+  transform: translate(0%,0%);
+}
+
+.effect-pop:hover {
+  transition: all .3s ease-in-out;
+  transform: translate(-4%,-4%);
+}
+
 .kbd-navigation .square:focus {
   background: #ddd;
 }
