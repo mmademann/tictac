@@ -50,6 +50,7 @@ ol, ul {
 }
 
 .effect-pop:hover {
+  background: #7FDBFF;
   transition: all .3s ease-in-out;
   transform: translate(-4%,-4%);
 }
