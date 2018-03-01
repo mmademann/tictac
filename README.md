@@ -1,3 +1,3 @@
-# Game of Squares
+# Game of Xs & Os
 
-Tic Tac Toe
+## Interactive Tic Tac Toe game using the React tutorials
