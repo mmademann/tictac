@@ -1,26 +1,31 @@
 import React from 'react'
-import helpers from '../tools/helpers'
 import Board from './Board'
 
 class Game extends React.Component {
 
     render() {
         const { value, onSelectSquare, onSelectHistory } = this.props;
-        const history = value.history;
-        const current = history[value.stepNumber];
-        const winner = helpers.calculateWinner(current.squares);
-        const moves = history.map((step, move) => {
+        const stepNumber = value.stepNumber;
+        const currentHistory = value.history;
+        const currentBoard = currentHistory[stepNumber];
+
+        const historyListItems = currentHistory.map((board, move) => {
             const desc = move ? 'Go to move #' + move : 'Go to the start';
-            return (
-                <li key={move}>
-                    <button onClick={(i) => onSelectHistory(move)}>{desc}</button>
-                </li>
-            );
+            if (board.state !== 'game-over'){
+                return (
+                    <li key={move}>
+                        <button onClick={(i) => onSelectHistory(move)}>{desc}</button>
+                    </li>
+                );
+            }
+            else {
+                return ('');
+            }
         });
 
         let status;
-        if (winner) {
-            status = 'Winner: ' + winner;
+        if (currentBoard.state === 'game-over') {
+            status = 'Winner: ' + currentBoard.winner;
         } else {
             status = 'Next player: ' + (value.xIsNext ? 'X' : 'O');
         }
@@ -29,13 +34,13 @@ class Game extends React.Component {
             <div className="game">
                 <div className="game-board">
                     <Board
-                        squares={current.squares}
+                        squares={currentBoard.squares}
                         onClick={onSelectSquare}
                     />
                 </div>
                 <div className="game-info">
                     <div className="status">{status}</div>
-                    <ol>{moves}</ol>
+                    <ol>{historyListItems}</ol>
                 </div>
             </div>
         );
