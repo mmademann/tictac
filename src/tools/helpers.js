@@ -1,4 +1,4 @@
-const helpers = {
+const Helpers = {
 
     calculateWinner: (squares) => {
         const lines = [
@@ -21,4 +21,4 @@ const helpers = {
     }
 }
 
-export default helpers;
+export default Helpers;

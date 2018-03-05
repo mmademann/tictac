@@ -4,11 +4,11 @@ import Board from './Board'
 class Game extends React.Component {
 
     render() {
+        let status;
         const { value, onSelectSquare, onSelectHistory } = this.props;
         const stepNumber = value.stepNumber;
         const currentHistory = value.history;
         const currentBoard = currentHistory[stepNumber];
-
         const historyListItems = currentHistory.map((board, move) => {
             const desc = move ? 'Go to move #' + move : 'Go to the start';
             if (board.state !== 'game-over'){
@@ -18,15 +18,13 @@ class Game extends React.Component {
                     </li>
                 );
             }
-            else {
-                return ('');
-            }
+            else { return (''); }
         });
 
-        let status;
         if (currentBoard.state === 'game-over') {
             status = 'Winner: ' + currentBoard.winner;
-        } else {
+        }
+        else {
             status = 'Next player: ' + (value.xIsNext ? 'X' : 'O');
         }
 

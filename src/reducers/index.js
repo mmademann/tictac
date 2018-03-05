@@ -38,17 +38,14 @@ export default (state = {}, action) => {
 			const newBoardState = {
 				history: newHistory,
 				stepNumber: newStepNumber,
-				xIsNext: xIsNext,
-				winner: winner,
-				fromHistory: false
+				xIsNext: xIsNext
 			}
 			return newBoardState;
 
 		case 'SELECT_HISTORY':
 			const newHistoryState = Object.assign({}, state, {
 				stepNumber: action.move,
-				xIsNext: (action.move % 2) === 0,
-				fromHistory: true
+				xIsNext: (action.move % 2) === 0
 			});
 			return newHistoryState;
 		default:
@@ -59,11 +56,7 @@ export default (state = {}, action) => {
 					squares: Array(9).fill(null)
 				}],
 				stepNumber: 0,
-				xIsNext: true,
-				winner: false,
-				willHaveWinner: false,
-				gameOver: false,
-				fromHistory: false
+				xIsNext: true
 			}
 	}
 }
